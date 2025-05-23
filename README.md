@@ -129,7 +129,7 @@ docker compose exec app python manage.py createsuperuser
 
 **Follow the prompts to set the username, email, and password.**
 
-_Running the Application_
+## Running the Application
 
 Start Docker Services:
 
@@ -152,44 +152,43 @@ docker compose down
 
 ## API Endpoints
 
-**Authentication Endpoints**
+### Authentication Endpoints
 
 These endpoints are accessible without authentication (AllowAny permission).
 
-Endpoint
+**Register a new user (default: Patient)**
 
-_Register a new user (default: Patient)_
+- POST /api/register/ 
 
-POST /api/register/ 
-
-{"username": "testuser", "email": "test@example.com", "password": "securepassword123", "first_name": "Test", "last_name": "User"}
+`{"username": "testuser", "email": "test@example.com", "password": "securepassword123", "first_name": "Test", "last_name": "User"}`
 
 ![image](https://github.com/user-attachments/assets/c9f78408-5afd-42a8-8d9e-840a46b39127)
 
 
-Log in and obtain JWT tokens
+**Log in and obtain JWT tokens**
 
-POST /api/login/
+- POST /api/login/
 
-{"username": "testuser", "password": "securepassword123"}
+`{"username": "testuser", "password": "securepassword123"}`
 
 
-Refresh the JWT access token
+**Refresh the JWT access token**
 
-POST /api/token/refresh/
+- POST /api/token/refresh/
 
-{"refresh": "<refresh_token>"}
+`{"refresh": "<refresh_token>"}`
+
 ![image](https://github.com/user-attachments/assets/93c1e676-c66c-4c34-8cbc-88c8f0093201)
 
 
 
-**Protected Endpoints**
+## Protected Endpoints
 
 These endpoints require a JWT access token in the Authorization header (Bearer <access_token>).
 
-List or create roles
+**List or create roles**
 
-GET, POST /api/roles/
+- GET, POST /api/roles/
 
 Admin only (custom permission)
 ![image](https://github.com/user-attachments/assets/bb869d53-db44-4ae5-af1b-3e3621f3e10a)
