@@ -50,7 +50,7 @@ Table of Contents
 
 ## Setup Instructions
 
-Clone the Repository
+**Clone the Repository**
 
 Clone the project to your local machine:
 
@@ -58,7 +58,7 @@ Clone the project to your local machine:
 git clone https://github.com/kihuni/hospital-appointment-system.git
 cd hospital-appointment-system
 ```
-Environment Configuration
+**Environment Configuration**
 
 Create a .env file in the project root with the following variables:
 
@@ -79,8 +79,9 @@ print(get_random_secret_key())
 
 ```
 
-Docker Setup
+**Docker Setup**
 The project uses Docker to manage the application (app) and database (db) services.
+
 Verify Docker Installation:
 
 ```
@@ -111,81 +112,86 @@ docker compose ps
 Ensure both app and db services are running.
 
 
-Apply Migrations
+_Apply Migrations_
+
 Apply database migrations to create the necessary tables:
 
 ```
 docker compose exec app python manage.py migrate
 ```
-Create a Superuser
+_Create a Superuser_
+
 Create an admin user to access the Django admin panel (http://localhost:8000/admin):
 
 ```
 docker compose exec app python manage.py createsuperuser
 ```
 
-Follow the prompts to set the username, email, and password.
+**Follow the prompts to set the username, email, and password.**
 
-Running the Application
+## Running the Application
 
 Start Docker Services:
 
 ```
 docker compose up -d
 ```
-Access the Application:
+_Access the Application:_
 
-API Root: http://localhost:8000/api/
+- API Root: http://localhost:8000/api/
 
-Admin Panel: http://localhost:8000/admin/
+- Admin Panel: http://localhost:8000/admin/
 
-Browsable API: Use a browser or API client to explore endpoints.
+- Browsable API: Use a browser or API client to explore endpoints.
 
-Stop Services:
+_Stop Services:_
 
 ```
 docker compose down
 ```
 
-API Endpoints
+## API Endpoints
 
-Authentication Endpoints
+### Authentication Endpoints
 
 These endpoints are accessible without authentication (AllowAny permission).
 
-Endpoint
+**Register a new user (default: Patient)**
 
-Register a new user (default: Patient)
+- POST /api/register/ 
 
-POST /api/register/ 
+`{"username": "testuser", "email": "test@example.com", "password": "securepassword123", "first_name": "Test", "last_name": "User"}`
 
-{"username": "testuser", "email": "test@example.com", "password": "securepassword123", "first_name": "Test", "last_name": "User"}
-
-
-
-Login and obtain JWT tokens
-
-POST /api/login/
-
-{"username": "testuser", "password": "securepassword123"}
+![image](https://github.com/user-attachments/assets/c9f78408-5afd-42a8-8d9e-840a46b39127)
 
 
-Refresh JWT access token
+**Log in and obtain JWT tokens**
 
-POST /api/token/refresh/
+- POST /api/login/
 
-{"refresh": "<refresh_token>"}
+`{"username": "testuser", "password": "securepassword123"}`
 
 
-Protected Endpoints
+**Refresh the JWT access token**
+
+- POST /api/token/refresh/
+
+`{"refresh": "<refresh_token>"}`
+
+![image](https://github.com/user-attachments/assets/93c1e676-c66c-4c34-8cbc-88c8f0093201)
+
+
+
+## Protected Endpoints
 
 These endpoints require a JWT access token in the Authorization header (Bearer <access_token>).
 
-List or create roles
+**List or create roles**
 
-GET, POST /api/roles/
+- GET, POST /api/roles/
 
 Admin only (custom permission)
+![image](https://github.com/user-attachments/assets/bb869d53-db44-4ae5-af1b-3e3621f3e10a)
 
 List or create doctors
 
