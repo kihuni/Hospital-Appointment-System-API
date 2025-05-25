@@ -193,35 +193,37 @@ These endpoints require a JWT access token in the Authorization header (Bearer <
 Admin only (custom permission)
 ![image](https://github.com/user-attachments/assets/bb869d53-db44-4ae5-af1b-3e3621f3e10a)
 
-List or create doctors
+**List or create doctors**
 
-GET, POST /api/doctors/
+- GET, POST /api/doctors/
 
 Admin or Doctor
+![image](https://github.com/user-attachments/assets/a46b0b85-01f9-4b98-8d59-4d43439d27b5)
 
-List or create appointments
+**List or create appointments**
 
-GET, POST /api/appointments/
+- GET, POST /api/appointments/
 
 Authenticated users
+![image](https://github.com/user-attachments/assets/640c548d-22db-4ded-93a8-2196c29ec646)
 
 
-Retrieve, update, or delete a role
+**Retrieve, update, or delete a role**
 
-GET, PUT, DELETE /api/roles/{id}/
+- GET, PUT, DELETE /api/roles/{id}/
 
 Admin only
 
-Retrieve, update, or delete a doctor
+**Retrieve, update, or delete a doctor**
 
-GET, PUT, DELETE /api/doctors/{id}/
+- GET, PUT, DELETE /api/doctors/{id}/
 
 Admin or Doctor
 
 
-Retrieve, update, or delete an appointment
+**Retrieve, update, or delete an appointment**
 
-GET, PUT, DELETE /api/appointments/{id}/
+- GET, PUT, DELETE /api/appointments/{id}/
 
 Authenticated users (role-based)
 
