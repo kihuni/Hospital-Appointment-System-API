@@ -55,7 +55,7 @@ class DoctorSerializer(serializers.ModelSerializer):
         fields = ['id', 'user', 'specialty', 'is_available']
 
 class AppointmentSerializer(serializers.ModelSerializer):
-    patient = serializers.PrimaryKeyRelatedField(queryset=User.objects.all(), required=False)
+    patient = serializers.PrimaryKeyRelatedField(read_only=True)
     doctor = serializers.PrimaryKeyRelatedField(queryset=Doctor.objects.all())
     date = serializers.DateTimeField(source='appointment_date')
 
@@ -63,10 +63,16 @@ class AppointmentSerializer(serializers.ModelSerializer):
         model = Appointment
         fields = ['id', 'patient', 'doctor', 'date', 'status', 'created_at']
         extra_kwargs = {
-            'created_at': {'read_only': True}  # Automatically set by model
+            'created_at': {'read_only': True} 
         }
 
     def validate(self, data):
         if 'patient' not in data and not self.context.get('request').user.is_authenticated:
             raise serializers.ValidationError({"patient": "Patient is required."})
         return data
+    
+    def create(self, validated_data):
+        request = self.context.get('request')
+        if request and request.user.is_authenticated:
+            validated_data['patient'] = request.user
+        return super().create(validated_data)
