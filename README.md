@@ -192,11 +192,15 @@ These endpoints require a JWT access token in the Authorization header (Bearer <
 
 Admin only (custom permission)
 
-Admin
+Admin:
+
 ![image](https://github.com/user-attachments/assets/856345cf-5e75-46ba-ba31-ad6f9b45a60f)
 
-Regular user
+
+Regular user:
+
 ![image](https://github.com/user-attachments/assets/bb869d53-db44-4ae5-af1b-3e3621f3e10a)
+
 
 **List or create doctors**
 
@@ -223,22 +227,8 @@ create appointments
 
 Admin only
 
-**Retrieve, update, or delete a doctor**
+![image](https://github.com/user-attachments/assets/65816efd-2bc6-4ba9-93d7-31a1c7ba21cb)
 
-- GET, PUT, DELETE /api/doctors/{id}/
-
-Admin or Doctor
-
-
-**Retrieve, update, or delete an appointment**
-
-- GET, PUT, DELETE /api/appointments/{id}/
-
-Authenticated users (role-based)
-
-Example Authorization Header:
-
-Authorization: Bearer <access_token>
 
 ## Testing the API
 
