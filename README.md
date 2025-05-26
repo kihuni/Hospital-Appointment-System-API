@@ -191,6 +191,11 @@ These endpoints require a JWT access token in the Authorization header (Bearer <
 - GET, POST /api/roles/
 
 Admin only (custom permission)
+
+Admin
+![image](https://github.com/user-attachments/assets/856345cf-5e75-46ba-ba31-ad6f9b45a60f)
+
+Regular user
 ![image](https://github.com/user-attachments/assets/bb869d53-db44-4ae5-af1b-3e3621f3e10a)
 
 **List or create doctors**
