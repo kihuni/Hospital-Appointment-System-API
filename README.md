@@ -198,7 +198,7 @@ Admin only (custom permission)
 - GET, POST /api/doctors/
 
 Admin or Doctor
-
+![image](https://github.com/user-attachments/assets/c8601ae3-e68d-452c-81fd-64a1cb1f7c2c)
 
 **List or create appointments**
 
