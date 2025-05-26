@@ -204,8 +204,12 @@ Admin or Doctor
 
 - GET, POST /api/appointments/
 
+List appointments
 Authenticated users
 ![image](https://github.com/user-attachments/assets/640c548d-22db-4ded-93a8-2196c29ec646)
+
+create appointments
+![image](https://github.com/user-attachments/assets/be675520-abc0-48e1-b910-2fdd6c39de44)
 
 
 **Retrieve, update, or delete a role**
